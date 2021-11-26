@@ -27,7 +27,7 @@
         <ul>
           {% if user.is_authenticated %}
             <li><a href="{% url 'patients_index' %}">Patients</a></li>
-            <li><a href="{% url 'cats_create' %}">Add a Patient</a></li>
+            <li><a href="{% url 'patients_create' %}">Add a Patient</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'logout' %}">Log out</a></li>
           {% else %}

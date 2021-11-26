@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView
+from .models import Patients
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -11,6 +13,14 @@ class Home(LoginView):
 
 def about(request):
     return render(request, 'about.html')
+
+def patients_index(request):
+  patients = Patients.objects.all()
+  return render(request, 'patients/index.html', { 'patients': patients })
+
+class PatientCreate(CreateView):
+  model = Patients
+  fields = '__all__'
 
 def signup(request):
     error_message = ''
