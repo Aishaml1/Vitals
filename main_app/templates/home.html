@@ -7,10 +7,21 @@
 
 {% block content %}
 
-<section class="logo-container">
-  <div class="Patients-container">
-    <img src="{% static 'images/homepg.png' %}" alt="Patients" />
+<section class="home-container">
+  <div class="home-container">
+    <img style='height:50vh' src="{% static 'images/homepg.png' %}" alt="Star of Life" />
   </div>
+{% if not user.is_authenticated %}
+  <div>
+  <form style='width:50vh' action="{% url 'home' %}" method="post" class="login">
+    <h1>Login</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="btn submit">Login</button>
+  </form>
+</div>
+{% endif %}
 </section>
 
 {% endblock %}

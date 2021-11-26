@@ -24,11 +24,18 @@
       </a>
     </div>
     <nav>
-      <ul>
-      <li><a href="/patients">Patients</a></li>
-        <li><a href="/about">About</a></li>
-      </ul>
-    </nav>
+        <ul>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'patients_index' %}">Patients</a></li>
+            <li><a href="{% url 'cats_create' %}">Add a Patient</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'logout' %}">Log out</a></li>
+          {% else %}
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'home' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </nav>
   </header>
   <main>
     {% block content %}
