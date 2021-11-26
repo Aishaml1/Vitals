@@ -17,8 +17,14 @@
   <table>
     {{ form.as_table }}
   </table>
-  
-  <button type="submit" class="btn submit">Submit!</button>
+
+<label for="sex">Sex:</label>
+<select id="s" name="sex">
+<option value="female">Female</option>
+<option value="male">Male</option>
+<option value="x">X</option>
+</select>
+<button type="submit" class="btn submit">Submit!</button>
 </form>
 
 {% endblock %}
