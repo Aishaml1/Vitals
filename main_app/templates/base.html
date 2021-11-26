@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link
+    rel="shortcut icon"
+    type="image/png"
+    href="{% static 'images/favi.png' %}">
+
+  <title>Vitals EMS</title>
+  {% block head %}
+  {% endblock %}
+</head>
+<body>
+  <header>
+    <div>
+      <a href="/">
+       <img  style='height:30vh;'  src="{% static 'images/logo.png' %}">
+      </a>
+    </div>
+    <nav>
+      <ul>
+      <li><a href="/patients">Patients</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>
